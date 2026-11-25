@@ -1,0 +1,21 @@
+services:
+  app:
+    build: .
+    ports:
+      - "127.0.0.1:8080:8080"
+    environment:
+      MONGODB_URI: mongodb://db:27017/patient_admissions
+    depends_on:
+      db:
+        condition: service_healthy
+  db:
+    image: mongo:7
+    volumes:
+      - patients:/data/db
+    healthcheck:
+      test: ["CMD", "mongosh", "--quiet", "--eval", "db.adminCommand('ping').ok"]
+      interval: 5s
+      timeout: 5s
+      retries: 12
+volumes:
+  patients:

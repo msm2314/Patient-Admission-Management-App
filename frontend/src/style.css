@@ -1,0 +1,55 @@
+:root{font-family:Inter,system-ui,sans-serif;color:#153237;background:#f3f7f6;font-synthesis:none}
+*{box-sizing:border-box}
+body{margin:0}
+header{background:#102e36;color:white}
+.shell{max-width:1280px;margin:auto;padding-inline:32px}
+.top{display:flex;align-items:center;justify-content:space-between;min-height:72px}
+.brand{display:flex;align-items:center;gap:10px;font-size:21px;font-weight:750}
+.logo{display:grid;place-items:center;background:#b8edda;color:#102e36;border-radius:9px;width:32px;height:32px;font-size:26px}
+.header-label{color:#c5dbd6;font-size:14px}
+.intro{display:flex;align-items:center;justify-content:space-between;gap:16px;margin:38px 0 24px}
+h1,h2,p{margin:0}h1{font-size:clamp(28px,5vw,42px);letter-spacing:-.045em}h2{font-size:20px}
+.intro p, .panel-head span{color:#506965}.intro p{margin-top:6px}
+button,input,select{font:inherit}
+button,input,select{border:1px solid #c9d8d4;border-radius:8px;background:white;color:inherit;min-height:40px;padding:8px 12px}
+button{cursor:pointer;font-weight:650}button:hover:not(:disabled){filter:brightness(.94)}button:disabled{opacity:.5;cursor:default}
+:focus-visible{outline:3px solid #258b76;outline-offset:2px}
+.primary,.danger{color:white;border:0;padding-inline:16px}.primary{background:#126b59}.danger{background:#af292c}.danger-text,.error{color:#a5222b}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:24px}
+.stat,.panel{background:white;border:1px solid #dce7e3;border-radius:15px;box-shadow:0 3px 10px #15323707}
+.stat{padding:16px 20px}.stat span{display:block;color:#506965;font-size:14px}.stat strong{display:block;font-size:32px;margin-top:6px}
+.panel{margin-bottom:32px;overflow:hidden}
+.panel-head,.filters{padding:18px 20px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.panel-head span{font-size:14px}
+.filters{display:grid;grid-template-columns:1.3fr repeat(3,1fr) auto;align-items:end;padding-top:0}
+label{display:grid;gap:6px;font-size:14px;font-weight:650;min-width:0}
+input,select{width:100%;font-weight:400}
+table{width:100%;border-collapse:collapse;text-align:left;font-size:14px}
+thead{background:#edf4f2;color:#486560}
+th,td{padding:12px 10px;border-top:1px solid #e6eeeb}
+tr > :first-child{padding-left:20px}tr > :last-child{padding-right:20px}
+small{display:block;color:#506965;margin-top:4px;font-size:12px}
+.badge{display:inline-block;padding:4px 8px;border-radius:20px;font-size:12px;font-weight:650}
+.admitted{background:#d9f2e7;color:#145c49}.discharged{background:#e8edf1;color:#385164}
+.actions button{font-size:12px;padding:5px 8px;min-height:34px;margin:2px}
+.empty{text-align:center;padding:35px 16px;color:#506965}.notice{padding:10px 20px;background:#edf7f2}.notice.error{background:#fff1f1}
+dialog{width:min(560px,calc(100% - 24px));max-height:90dvh;overflow:auto;border:1px solid #dce7e3;border-radius:16px;padding:24px;color:inherit}
+dialog::backdrop{background:#102e3699}dialog p{margin-top:12px}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:16px}
+.dialog-actions{display:flex;justify-content:flex-end;gap:8px;margin-top:20px}
+[aria-invalid=true]{border-color:#a5222b}
+@media(max-width:920px){
+.filters{grid-template-columns:repeat(2,1fr)}
+table,tbody{display:block}thead{position:absolute;clip-path:inset(50%);width:1px;height:1px;overflow:hidden}
+tbody{padding:0 16px 16px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+tr{display:block;border:1px solid #dce7e3;border-radius:12px;padding:10px 14px}
+tr > :first-child,tr > :last-child,td,th{padding:6px 0;border:0}
+td{display:flex;justify-content:space-between;align-items:center;gap:8px;text-align:right}td[data-label]::before{content:attr(data-label);color:#506965;text-align:left}
+.actions{justify-content:flex-start;flex-wrap:wrap}
+}
+@media(max-width:560px){
+.shell{padding-inline:14px}.intro{align-items:flex-start;flex-direction:column;margin-top:24px}
+.header-label{display:none}.stats{gap:6px}.stat{padding:10px}.stat span{font-size:12px}.stat strong{font-size:25px}
+tbody{grid-template-columns:1fr}.panel-head,.filters{padding-inline:12px}.panel-head span{font-size:12px}
+}
+@media(max-width:360px){.form-grid,.filters{grid-template-columns:1fr}}
