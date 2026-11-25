@@ -51,3 +51,25 @@ Deploy the root Dockerfile to a Docker-capable web service and configure `MONGOD
 | DELETE | `/api/patients/{id}` | Delete a patient |
 
 The frontend and API validate names, whole-number ages from 0 to 120, dropdown selections, and admission dates. Both use the India date for the future-date rule. Invalid writes return HTTP 400 with a message and field errors. Names accept Unicode letters and spaces between words.
+
+## Architecture
+
+Browser → React/Vite UI → Spring Boot REST API → MongoDB. The Docker build bundles the frontend and backend into one deployable Java service.
+
+## Releases and packages
+
+Current source version: **1.0.0** (Maven project version). A published GitHub release and container package are not yet available.
+
+- [Releases](https://github.com/msm2314/Patient-Admission-Management-App/releases): versioned distribution archives and release notes.
+- [Packages](https://github.com/msm2314/Patient-Admission-Management-App/packages): container images when published.
+- [Source archive](./WardDesk-source.zip): existing project source bundle.
+
+To build a local container image:
+
+```sh
+docker build -t warddesk:1.0.0 .
+```
+
+## Demo safety
+
+This is an internship assignment prototype, not a production clinical system. Use fictional patient records only. Do not submit real patient information or credentials to the public demo. Production use would require authentication, authorization, audit logging and a security/privacy review.
